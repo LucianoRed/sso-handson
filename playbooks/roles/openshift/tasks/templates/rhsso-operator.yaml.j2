@@ -11,6 +11,7 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: rhsso-operator
+  namespace: {{ user }}-rhsso
 spec:
   channel: stable
   installPlanApproval: Automatic
