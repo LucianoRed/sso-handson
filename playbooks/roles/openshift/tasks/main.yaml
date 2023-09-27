@@ -2,3 +2,12 @@
   kubernetes.core.k8s:
     state: present
     template: namespace.yaml.j2
+- name: Criando Rolebinding {{ user}}
+  kubernetes.core.k8s:
+    state: present
+    template: rolebinding.yaml.j2
+- name: Criando Operator para {{ user }}
+  kubernetes.core.k8s:
+    state: present
+    template: rhsso-operator.yaml.j2
+
