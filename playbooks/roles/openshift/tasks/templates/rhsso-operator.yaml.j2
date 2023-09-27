@@ -2,6 +2,7 @@ apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
   name: rhsso-operator-group
+  namespace: {{ user }}-rhsso
 spec:
   targetNamespaces:
   -  {{ user }}-rhsso
