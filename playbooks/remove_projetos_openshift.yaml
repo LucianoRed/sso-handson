@@ -6,5 +6,5 @@
       name: openshift
     vars:
       user: "{{ item }}"
-      action: "add"
-    with_sequence: start=1 end=20 stride=1 format=user%01d
+      action: "remove"
+    with_sequence: start=4 end=20 stride=1 format=user%01d
