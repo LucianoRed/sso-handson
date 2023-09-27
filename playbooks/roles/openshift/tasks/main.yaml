@@ -15,6 +15,6 @@
   when: action = "add"
 - name: Removendo Projeto usuario {{ user}}
   kubernetes.core.k8s:
-    state: present
+    state: absent
     template: namespace.yaml.j2
   when: action = "remove"
