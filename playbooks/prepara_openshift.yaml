@@ -1,5 +1,9 @@
 - name: Prepara ambiente OpenShift
   hosts: localhost
-  roles:
-    - openshift
-    
+  tasks:
+  - name: Prepara ambiente openshift
+    include_role:
+      name: openshift
+    vars:
+      user: "{{ user }}"
+    with_sequence: start=1 end=20 stride=1 format=user%02x
