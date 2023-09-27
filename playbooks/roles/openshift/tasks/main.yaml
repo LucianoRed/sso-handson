@@ -2,19 +2,19 @@
   kubernetes.core.k8s:
     state: present
     template: namespace.yaml.j2
-  when: action = "add"
+  when: action == "add"
 - name: Criando Rolebinding {{ user}}
   kubernetes.core.k8s:
     state: present
     template: rolebinding.yaml.j2
-  when: action = "add"    
+  when: action == "add"    
 - name: Criando Operator para {{ user }}
   kubernetes.core.k8s:
     state: present
     template: rhsso-operator.yaml.j2
-  when: action = "add"
+  when: action == "add"
 - name: Removendo Projeto usuario {{ user}}
   kubernetes.core.k8s:
     state: absent
     template: namespace.yaml.j2
-  when: action = "remove"
+  when: action == "remove"
