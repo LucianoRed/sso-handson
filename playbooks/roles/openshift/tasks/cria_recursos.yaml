@@ -1,0 +1,5 @@
+- name: Criando Projeto usuario {{ user}}
+  kubernetes.core.k8s:
+    state: present
+    template: namespace.yaml.j2  
+

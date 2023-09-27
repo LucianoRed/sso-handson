@@ -1,0 +1,5 @@
+- name: Prepara ambiente OpenShift
+  hosts: localhost
+  roles:
+    - openshift
+    

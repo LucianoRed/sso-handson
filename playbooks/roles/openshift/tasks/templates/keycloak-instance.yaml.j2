@@ -1,0 +1,15 @@
+apiVersion: keycloak.org/v1alpha1
+kind: Keycloak
+metadata:
+  name: {{ user }}-keycloak
+  labels:
+    app: sso
+  namespace: {{ user }}-rhsso
+spec:
+  externalAccess:
+    enabled: true
+  keycloakDeploymentSpec:
+    imagePullPolicy: Always
+  postgresDeploymentSpec:
+    imagePullPolicy: Always
+  instances: 1

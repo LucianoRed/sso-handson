@@ -1,0 +1,27 @@
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: {{ user }}-rhsso
+  labels:
+    kubernetes.io/metadata.name: {{ user }}-rhsso
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/warn-version: v1.24
+spec:
+  finalizers:
+    - kubernetes
+---
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: {{ user }}-rhbk
+  labels:
+    kubernetes.io/metadata.name: {{ user }}-rhbk
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/warn-version: v1.24
+spec:
+  finalizers:
+    - kubernetes
