@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: openldap-service
+  namespace: {{ user }}-rhsso
+  labels:
+    app: openldap
+    app.kubernetes.io/component: openldap
+    app.kubernetes.io/instance: openldap
+    app.kubernetes.io/name: openldap
+    app.openshift.io/runtime-version: latest
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 1389-tcp
+      protocol: TCP
+      port: 1389
+      targetPort: 1389
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: openldap
+    deployment: openldap
