@@ -1,0 +1,61 @@
+version: 1
+
+# Entry 1: cn=user1@your.company.com,dc=your,dc=company,dc=com
+dn: cn=user1@your.company.com,dc=your,dc=company,dc=com
+changetype: add
+cn: user1@your.company.com
+displayname: User 1
+givenname: User
+mail: user1@your.company.com
+objectclass: inetOrgPerson
+sn: 1
+userpassword: 1234
+
+# Entry 2: cn=user2@your.company.com,dc=your,dc=company,dc=com
+dn: cn=user2your.company.com,dc=your,dc=company,dc=com
+changetype: add
+cn: user2@your.company.com
+displayname: User 2
+givenname: User
+mail: user2@your.company.com
+objectclass: inetOrgPerson
+sn: 2
+userpassword: 1234
+
+# Entry 3: ou=Groups,dc=your,dc=company,dc=com
+dn: ou=Groups,dc=your,dc=company,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+# Entry 4: cn=Admins,ou=Groups,dc=your,dc=company,dc=com
+dn: cn=Admins,ou=Groups,dc=your,dc=company,dc=com
+changetype: add
+cn: Admins
+objectclass: groupOfUniqueNames
+uniquemember: cn=user1@your.company.com,dc=your,dc=company,dc=com
+uniquemember: cn=user2@your.company.com,dc=your,dc=company,dc=com
+
+# Entry 5: ou=policies,dc=your,dc=company,dc=com
+dn: ou=policies,dc=your,dc=company,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: policies
+
+# Entry 6: cn=default,ou=policies,dc=your,dc=company,dc=com
+dn: cn=default,ou=policies,dc=your,dc=company,dc=com
+changetype: add
+cn: default
+objectclass: organizationalRole
+objectclass: pwdPolicy
+objectclass: top
+pwdattribute: 2.5.4.35
+pwdcheckquality: 2
+pwdminlength: 4
+pwdmustchange: TRUE
+
+# Entry 7: ou=Users,dc=your,dc=company,dc=com
+dn: ou=Users,dc=your,dc=company,dc=com
+changetype: add
+objectclass: organizationalUnit
+ou: Users
