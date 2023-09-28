@@ -13,6 +13,16 @@
     state: present
     template: rhsso-operator.yaml.j2
   when: action == "add"
+- name: Criando Ldap para {{ user }}
+  kubernetes.core.k8s:
+    state: present
+    template: deployment-ldap.yaml.j2
+  when: action == "add"  
+- name: Criando Service Ldap para {{ user }}
+  kubernetes.core.k8s:
+    state: present
+    template: service-ldap.yaml.j2
+  when: action == "add"  
 - name: Removendo Projeto usuario {{ user}}
   kubernetes.core.k8s:
     state: absent
